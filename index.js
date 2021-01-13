@@ -1,5 +1,4 @@
-function get_random_color(){
-    /* 0 -> red, 1 -> green, 2 -> yellow, 3 -> blue */    
+function get_random_color(){ 
     const random_color = Math.floor(Math.random() * 4);
     return random_color;
 }
@@ -19,7 +18,7 @@ async function lighten(id) {
     let color = document.getElementById(id.toString());
     color.style.background = light_colors[id];
     color.style.boxShadow = shadows[id];
-    await timeout(10000);
+    await timeout(3000);
     color.style.background = colors[id];
     color.style.boxShadow = 'none';
 }
@@ -51,13 +50,29 @@ async function show_sequences() {
     return null;
 }
 
-const colors = ['#D00000','#FFBA08','#084B83','#2BA84A'];
-const light_colors = ['#fb2333','#ffcc4d','#0d72c5','#1ae24c'];
-const shadows = ['-12px -12px 12px #fb2333', '12px -12px 12px #ffcc4d', '-12px 12px 12px #0d72c5', '12px 12px 12px #1ae24c']
+const colors = [
+  '#D00000',
+  '#FFBA08',
+  '#084B83',
+  '#2BA84A'
+];
+
+const light_colors = [
+  '#fb2333',
+  '#ffcc4d',
+  '#0d72c5',
+  '#1ae24c'
+];
+
+const shadows = [
+  '-12px -12px 12px #fb2333', 
+  '12px -12px 12px #ffcc4d', 
+  '-12px 12px 12px #0d72c5', 
+  '12px 12px 12px #1ae24c'
+];
+
 const sequences = [get_random_color()];
 let user_sequences = [];
-
-console.log(sequences);
 
 document.addEventListener('click', (event) =>{
     const event_id = event.target.id;
